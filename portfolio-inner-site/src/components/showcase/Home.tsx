@@ -1,0 +1,207 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Icon } from '../general';
+import { IconName } from '../../assets/icons';
+
+export interface HomeProps {}
+
+interface WindowsButtonProps {
+    icon?: IconName;
+    text: string;
+    onClick?: () => void;
+    route?: string;
+}
+
+const WindowsButton: React.FC<WindowsButtonProps> = ({ icon, text, onClick, route }) => {
+    const navigate = useNavigate();
+
+    const handleClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (route) {
+            navigate(`/${route}`);
+        } else if (onClick) {
+            onClick();
+        }
+    };
+
+    return (
+        <button style={styles.winButton} onMouseDown={handleClick}>
+            {icon && <Icon icon={icon} size={24} style={{ marginRight: 8 }} />}
+            <span style={styles.winButtonText}>{text}</span>
+        </button>
+    );
+};
+
+const Tag: React.FC<{ text: string }> = ({ text }) => {
+    return (
+        <div style={styles.tag}>
+            <span style={styles.tagText}>{text}</span>
+        </div>
+    );
+};
+
+const Divider = () => <div style={styles.divider} />;
+
+const Home: React.FC<HomeProps> = (props) => {
+    return (
+        <div style={styles.page}>
+            <div style={styles.header}>
+                <Icon icon="computerBig" size={64} style={{ marginBottom: 8 }} />
+                <h1 style={styles.name}>NGO MINH THIEN</h1>
+                <h3 style={styles.subtitle}>Software Engineer</h3>
+                <h4 style={styles.location}>Vietnam</h4>
+            </div>
+            
+            <div style={styles.tagsContainer}>
+                <Tag text="React" />
+                <Tag text="Python" />
+                <Tag text="TypeScript" />
+                <Tag text="Full-stack" />
+                <Tag text="AI Integration" />
+                <Tag text="WebSockets" />
+            </div>
+
+            <Divider />
+
+            <div style={styles.buttonsContainer}>
+                <div style={styles.buttonsRow}>
+                    <WindowsButton icon="myComputer" text="About" route="about" />
+                    <WindowsButton icon="showcaseIcon" text="Projects" route="projects" />
+                    <WindowsButton icon="doomIcon" text="Skills" />
+                    <WindowsButton icon="windowExplorerIcon" text="Experiences" route="experience" />
+                </div>
+                <div style={styles.buttonsRow}>
+                    <WindowsButton icon="computerSmall" text="Educations" />
+                    <WindowsButton icon="henordleIcon" text="Certifications" />
+                    <WindowsButton icon="credits" text="Resume" />
+                    <WindowsButton icon="showcaseIcon" text="LinkedIn" />
+                </div>
+                <div style={styles.buttonsRow}>
+                    <WindowsButton icon="trailIcon" text="GitHub" />
+                </div>
+            </div>
+            
+            <Divider />
+
+            <div style={styles.bioText}>
+                <p>
+                    Hello there! I'm Ngo Minh Thien, a passionate Software Engineer currently working at Asia Information Technology Center (AITC). 
+                    I am a student at Ho Chi Minh City University of Technology - HUTECH.
+                </p>
+                <br />
+                <p>
+                    Outside of my regular coursework, I focus on building high-performance, production-ready web solutions. 
+                    I particularly enjoy leveraging Artificial Intelligence to optimize development workflows, enhance UI/UX, 
+                    and deliver scalable backend services and responsive frontend interfaces. My objective is to build clean, 
+                    modular architecture and optimize API performance to ensure system scalability across multiple enterprise applications.
+                </p>
+            </div>
+        </div>
+    );
+};
+
+const styles: StyleSheetCSS = {
+    page: {
+        left: 0,
+        right: 0,
+        top: 0,
+        position: 'absolute',
+        backgroundColor: '#c0c0c0',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        height: '100%',
+        padding: '32px 48px',
+        boxSizing: 'border-box',
+        overflowY: 'auto',
+    },
+    header: {
+        textAlign: 'center',
+        marginBottom: 16,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    name: {
+        fontSize: 32,
+        marginBottom: 4,
+        fontFamily: 'Pixel, sans-serif', // assuming pixel font exists, otherwise fallback
+    },
+    subtitle: {
+        fontSize: 16,
+        color: '#555',
+        marginBottom: 2,
+    },
+    location: {
+        fontSize: 14,
+        color: '#777',
+    },
+    tagsContainer: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        marginBottom: 24,
+        maxWidth: 700,
+        gap: 8,
+    },
+    tag: {
+        padding: '2px 6px',
+        backgroundColor: '#c0c0c0',
+        borderTop: '1px solid #fff',
+        borderLeft: '1px solid #fff',
+        borderRight: '1px solid #808080',
+        borderBottom: '1px solid #808080',
+    },
+    tagText: {
+        fontSize: 12,
+        color: '#000',
+    },
+    divider: {
+        width: '100%',
+        maxWidth: 800,
+        height: 2,
+        backgroundColor: '#fff',
+        borderTop: '1px solid #808080',
+        marginBottom: 24,
+    },
+    buttonsContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 12,
+        marginBottom: 24,
+    },
+    buttonsRow: {
+        display: 'flex',
+        justifyContent: 'center',
+        gap: 12,
+        flexWrap: 'wrap',
+    },
+    winButton: {
+        display: 'flex',
+        alignItems: 'center',
+        padding: '4px 12px',
+        backgroundColor: '#c0c0c0',
+        borderTop: '2px solid #fff',
+        borderLeft: '2px solid #fff',
+        borderRight: '2px solid #000',
+        borderBottom: '2px solid #000',
+        boxShadow: 'inset -1px -1px #808080, inset 1px 1px #dfdfdf',
+        cursor: 'pointer',
+        fontFamily: 'inherit',
+    },
+    winButtonText: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: '#000',
+    },
+    bioText: {
+        maxWidth: 800,
+        textAlign: 'left',
+        fontSize: 14,
+        lineHeight: 1.4,
+        color: '#000',
+    },
+};
+
+export default Home;

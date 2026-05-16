@@ -153,7 +153,7 @@ const LoadingScreen: React.FC<LoadingProps> = () => {
                         <div style={styles.logoContainer}>
                             <div>
                                 <p style={styles.green}>
-                                    <b>Thiên Inc.</b>
+                                    <b>NGO MINH THIEN Inc.</b>
                                 </p>
                             </div>
                         </div>
@@ -195,7 +195,7 @@ const LoadingScreen: React.FC<LoadingProps> = () => {
                             <p>
                                 All Content Loaded, launching{' '}
                                 <b style={styles.green}>
-                                    'Thiên Portfolio Showcase'
+                                    'NGO MINH THIEN Portfolio Showcase'
                                 </b>{' '}
                                 V1.0
                             </p>
@@ -227,7 +227,7 @@ const LoadingScreen: React.FC<LoadingProps> = () => {
                     <p>But do enjoy what I have done so far :)</p>
                     <div style={styles.spacer} />
                     <div style={styles.spacer} /> */}
-                    <p>Thiên Portfolio Showcase {getCurrentYear()}</p>
+                    <p>NGO MINH THIEN Portfolio Showcase {getCurrentYear()}</p>
                     {mobileWarning && (
                         <>
                             <br />

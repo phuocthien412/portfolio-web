@@ -2,6 +2,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+const webpack = require('webpack');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/script.ts'),
@@ -20,6 +22,9 @@ module.exports = {
             minify: true,
         }),
         new MiniCSSExtractPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.INNER_SITE_URL': JSON.stringify(process.env.INNER_SITE_URL),
+        }),
     ],
     resolve: {
         alias: {
