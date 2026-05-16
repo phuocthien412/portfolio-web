@@ -401,3 +401,36 @@ input:active {
     cursor: pointer;
     color: white;
 }
+
+/* Windows 98 Scrollbar */
+::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+    background-color: #c0c0c0;
+}
+
+::-webkit-scrollbar-track {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAD0lEQVQIW2P8DwSMDDAAAAByAAID899pAAAAAElFTkSuQmCC"); /* Checkerboard pattern for track */
+    background-color: #fff;
+    box-shadow: inset 1px 1px #808080, inset -1px -1px #dfdfdf;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px #404040;
+}
+
+::-webkit-scrollbar-button {
+    background-color: #c0c0c0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    display: block;
+    height: 16px;
+    width: 16px;
+}

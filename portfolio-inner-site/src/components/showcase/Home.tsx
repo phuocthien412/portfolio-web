@@ -69,13 +69,13 @@ const Home: React.FC<HomeProps> = (props) => {
                 <div style={styles.buttonsRow}>
                     <WindowsButton icon="myComputer" text="About" route="about" />
                     <WindowsButton icon="project" text="Projects" route="projects" />
-                    <WindowsButton icon="doomIcon" text="Skills" />
+                    <WindowsButton icon="doomIcon" text="Skills" route="skills" />
                     <WindowsButton icon="command-line" text="Experiences" route="experience" />
                 </div>
                 <div style={styles.buttonsRow}>
-                    <WindowsButton icon="education" text="Educations" />
-                    <WindowsButton icon="certificate" text="Certifications" />
-                    <WindowsButton icon="credits" text="Resume" />
+                    <WindowsButton icon="education" text="Educations" route="educations" />
+                    <WindowsButton icon="certificate" text="Certifications" route="certifications" />
+                    <WindowsButton icon="credits" text="Resume" route="resume" />
                     <WindowsButton 
                         customIcon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" 
                         text="LinkedIn" 

@@ -83,9 +83,13 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
 
             <div style={styles.links}>
                 <NavButton icon="myComputer" text="Home" to="" isCollapsed={isCollapsed} />
-                <NavButton icon="doomIcon" text="About" to="about" isCollapsed={isCollapsed} />
+                <NavButton icon="myComputer" text="About" to="about" isCollapsed={isCollapsed} />
+                <NavButton icon="doomIcon" text="Skills" to="skills" isCollapsed={isCollapsed} />
                 <NavButton icon="command-line" text="Experience" to="experience" isCollapsed={isCollapsed} />
                 <NavButton icon="project" text="Projects" to="projects" isCollapsed={isCollapsed} />
+                <NavButton icon="education" text="Educations" to="educations" isCollapsed={isCollapsed} />
+                <NavButton icon="certificate" text="Certifications" to="certifications" isCollapsed={isCollapsed} />
+                <NavButton icon="credits" text="Resume" to="resume" isCollapsed={isCollapsed} />
                 <NavButton icon="trailIcon" text="Contact" to="contact" isCollapsed={isCollapsed} />
             </div>
         </div>
@@ -104,6 +108,7 @@ const styles: StyleSheetCSS = {
         borderRight: '2px solid #808080',
         flexShrink: 0,
         transition: 'width 0.2s',
+        overflowY: 'auto',
     },
     collapsedNavbar: {
         width: 70,

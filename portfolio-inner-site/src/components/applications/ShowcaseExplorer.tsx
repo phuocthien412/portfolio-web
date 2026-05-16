@@ -11,6 +11,10 @@ import MusicProjects from '../showcase/projects/Music';
 import ArtProjects from '../showcase/projects/Art';
 import VerticalNavbar from '../showcase/VerticalNavbar';
 import useInitialWindowSize from '../../hooks/useInitialWindowSize';
+import Skills from '../showcase/Skills';
+import Educations from '../showcase/Educations';
+import Certifications from '../showcase/Certifications';
+import Resume from '../showcase/Resume';
 
 export interface ShowcaseExplorerProps extends WindowAppProps {}
 
@@ -38,6 +42,10 @@ const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
                         <Route path="/about" element={<About />} />
                         <Route path="/experience" element={<Experience />} />
                         <Route path="/projects" element={<Projects />} />
+                        <Route path="/skills" element={<Skills />} />
+                        <Route path="/educations" element={<Educations />} />
+                        <Route path="/certifications" element={<Certifications />} />
+                        <Route path="/resume" element={<Resume />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route
                             path="/projects/software"
