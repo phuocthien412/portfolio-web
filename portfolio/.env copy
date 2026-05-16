@@ -1,0 +1,3 @@
+INNER_SITE_URL= http://localhost:3000
+FOLIO_EMAIL=example@gmail.com
+FOLIO_PASSWORD=
