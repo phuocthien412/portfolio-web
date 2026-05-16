@@ -11,8 +11,18 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ title, description, icon }) => {
+    const [isHovered, setIsHovered] = React.useState(false);
+
     return (
-        <div style={styles.projectContainer}>
+        <div 
+            style={Object.assign(
+                {}, 
+                styles.projectContainer, 
+                isHovered && styles.projectContainerHover
+            )}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
             <div style={styles.projectHeader}>
                 <div className="big-button-container" style={styles.iconContainer}>
                     <Icon icon={icon} size={32} />
@@ -77,11 +87,24 @@ const styles: StyleSheetCSS = {
     projectContainer: {
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
-        border: '1px solid #ccc',
-        boxShadow: '2px 2px 5px rgba(0,0,0,0.1)',
+        backgroundColor: '#d4d0c8',
+        borderTop: '2px solid #808080',
+        borderLeft: '2px solid #808080',
+        borderRight: '2px solid #fff',
+        borderBottom: '2px solid #fff',
         padding: 24,
         boxSizing: 'border-box',
+        transition: 'all 0.1s ease-in-out',
+        cursor: 'default',
+    },
+    projectContainerHover: {
+        backgroundColor: '#e4e0d8',
+        borderTop: '2px solid #fff',
+        borderLeft: '2px solid #fff',
+        borderRight: '2px solid #808080',
+        borderBottom: '2px solid #808080',
+        boxShadow: '4px 4px 10px rgba(0,0,0,0.2)',
+        transform: 'translate(-2px, -2px)',
     },
     projectHeader: {
         display: 'flex',
@@ -95,18 +118,19 @@ const styles: StyleSheetCSS = {
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: 16,
+        backgroundColor: '#c0c0c0',
     },
     projectTitle: {
         fontSize: 28,
         margin: 0,
         fontWeight: 'bold',
-        color: '#333',
+        color: '#000',
     },
     projectDescription: {
         marginTop: 0,
         fontSize: 16,
         lineHeight: 1.5,
-        color: '#444',
+        color: '#000',
     },
 };
 

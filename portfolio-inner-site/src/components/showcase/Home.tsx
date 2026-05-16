@@ -34,13 +34,13 @@ const WindowsButton: React.FC<WindowsButtonProps> = ({ icon, customIcon, text, o
     );
 };
 
-const Tag: React.FC<{ text: string }> = ({ text }) => {
-    return (
-        <div style={styles.tag}>
-            <span style={styles.tagText}>{text}</span>
-        </div>
-    );
-};
+// const Tag: React.FC<{ text: string }> = ({ text }) => {
+//     return (
+//         <div style={styles.tag}>
+//             <span style={styles.tagText}>{text}</span>
+//         </div>
+//     );
+// };
 
 const Divider = () => <div style={styles.divider} />;
 
@@ -54,20 +54,20 @@ const Home: React.FC<HomeProps> = (props) => {
                 <h4 style={styles.location}>Vietnam</h4>
             </div>
             
-            <div style={styles.tagsContainer}>
+            {/* <div style={styles.tagsContainer}>
                 <Tag text="React" />
                 <Tag text="Python" />
                 <Tag text="TypeScript" />
                 <Tag text="Full-stack" />
                 <Tag text="AI Integration" />
                 <Tag text="WebSockets" />
-            </div>
+            </div> */}
 
             <Divider />
 
             <div style={styles.buttonsContainer}>
                 <div style={styles.buttonsRow}>
-                    <WindowsButton icon="showcaseIcon" text="About" route="about" />
+                    <WindowsButton icon="computerSmall" text="About" route="about" />
                     <WindowsButton icon="project" text="Projects" route="projects" />
                     <WindowsButton icon="doomIcon" text="Skills" route="skills" />
                     <WindowsButton icon="command-line" text="Experiences" route="experience" />

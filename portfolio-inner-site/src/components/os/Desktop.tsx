@@ -28,7 +28,7 @@ const APPLICATIONS: {
     biography: {
         key: 'biography',
         name: 'Biography',
-        shortcutIcon: 'showcaseIcon',
+        shortcutIcon: 'myComputer',
         component: ShowcaseExplorer,
     },
     resume: {
