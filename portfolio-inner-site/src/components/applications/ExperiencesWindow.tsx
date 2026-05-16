@@ -16,7 +16,7 @@ const ExperiencesWindow: React.FC<ExperiencesWindowProps> = (props) => {
             width={initWidth}
             height={initHeight}
             windowTitle="Experiences"
-            windowBarIcon="windowExplorerIcon"
+            windowBarIcon="command-line"
             closeWindow={props.onClose}
             onInteract={props.onInteract}
             minimizeWindow={props.onMinimize}
@@ -24,7 +24,7 @@ const ExperiencesWindow: React.FC<ExperiencesWindowProps> = (props) => {
         >
             <div style={styles.page}>
                 <div style={styles.header}>
-                    <Icon icon="windowExplorerIcon" size={48} style={{ marginBottom: 8 }} />
+                    <Icon icon="command-line" size={48} style={{ marginBottom: 8 }} />
                     <h2 style={{ margin: 0 }}>Experiences</h2>
                     <p style={{ margin: 0, color: '#555', fontSize: 12 }}>My Professional/Organizational Experiences</p>
                 </div>
@@ -53,16 +53,31 @@ const ExperiencesWindow: React.FC<ExperiencesWindowProps> = (props) => {
                 <div style={styles.contentContainer}>
                     {activeTab === 'Professional' && (
                         <div style={styles.experienceCard}>
-                            <h3 style={styles.jobTitle}>Asia Information Technology Center (AITC)</h3>
-                            <div style={styles.jobSubtitle}>
-                                <i>Software Engineer</i>
-                                <span>Dec 2025 - Present</span>
+                            <div style={styles.jobHeaderRow}>
+                                <div style={styles.jobHeaderLeft}>
+                                    <h3 style={styles.jobTitle}>Asia Information Technology Center (AITC)</h3>
+                                    <i style={styles.jobRole}>Software Engineer</i>
+                                </div>
+                                <div style={styles.jobHeaderRight}>
+                                    <b>Dec 2025 - Present</b>
+                                </div>
                             </div>
+                            
+                            <div style={styles.dividerSmall} />
+                            
+                            <p style={styles.summaryText}>
+                                Asia Information Technology Center (AITC) is a leading tech 
+                                provider. As a Software Engineer, I focus on full-stack 
+                                development, system optimization, and integrating AI 
+                                solutions to improve business efficiency.
+                            </p>
+
                             <ul style={styles.list}>
                                 <li>Developed and maintained the official corporate website using WordPress, leveraging AI to optimize JavaScript and enhance UI/UX with modern animations.</li>
                                 <li>Engineered the "Tân Hòa Chatbot" dashboard using React, integrating advanced AI capabilities for automated customer interaction and real-time data visualization.</li>
                                 <li>Built a QR Code E-card system featuring impressive popups and seamless integration for guest management, optimized through AI-driven logic.</li>
                                 <li>Collaborated on internal equipment management tools, implementing configuration comparison features and proactive maintenance alert systems.</li>
+                                <li>Focused on building clean, modular architecture and optimizing API performance to ensure system scalability across multiple enterprise applications.</li>
                             </ul>
                         </div>
                     )}
@@ -138,20 +153,48 @@ const styles: StyleSheetCSS = {
         flexDirection: 'column',
     },
     jobTitle: {
-        margin: '0 0 8px 0',
-        fontSize: 18,
+        margin: '0 0 4px 0',
+        fontSize: 20,
+        fontWeight: 'bold',
     },
-    jobSubtitle: {
+    jobRole: {
+        fontSize: 16,
+        color: '#333',
+    },
+    jobHeaderRow: {
         display: 'flex',
         justifyContent: 'space-between',
-        fontSize: 14,
+        alignItems: 'flex-start',
+        width: '100%',
+        marginBottom: 8,
+    },
+    jobHeaderLeft: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    jobHeaderRight: {
+        display: 'flex',
+        alignItems: 'flex-start',
+    },
+    dividerSmall: {
+        width: '100%',
+        height: 1,
+        backgroundColor: '#808080',
+        borderBottom: '1px solid #fff',
         marginBottom: 16,
+    },
+    summaryText: {
+        fontSize: 14,
+        lineHeight: 1.6,
+        marginBottom: 16,
+        color: '#222',
+        fontStyle: 'italic',
     },
     list: {
         margin: 0,
         paddingLeft: 24,
         fontSize: 14,
-        lineHeight: 1.5,
+        lineHeight: 1.6,
     },
 };
 

@@ -83,7 +83,7 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
 
             <div style={styles.links}>
                 <NavButton icon="myComputer" text="Home" to="" isCollapsed={isCollapsed} />
-                <NavButton icon="myComputer" text="About" to="about" isCollapsed={isCollapsed} />
+                <NavButton icon="showcaseIcon" text="About" to="about" isCollapsed={isCollapsed} />
                 <NavButton icon="doomIcon" text="Skills" to="skills" isCollapsed={isCollapsed} />
                 <NavButton icon="command-line" text="Experience" to="experience" isCollapsed={isCollapsed} />
                 <NavButton icon="project" text="Projects" to="projects" isCollapsed={isCollapsed} />

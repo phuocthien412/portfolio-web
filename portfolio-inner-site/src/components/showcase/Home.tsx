@@ -67,7 +67,7 @@ const Home: React.FC<HomeProps> = (props) => {
 
             <div style={styles.buttonsContainer}>
                 <div style={styles.buttonsRow}>
-                    <WindowsButton icon="myComputer" text="About" route="about" />
+                    <WindowsButton icon="showcaseIcon" text="About" route="about" />
                     <WindowsButton icon="project" text="Projects" route="projects" />
                     <WindowsButton icon="doomIcon" text="Skills" route="skills" />
                     <WindowsButton icon="command-line" text="Experiences" route="experience" />
@@ -79,14 +79,14 @@ const Home: React.FC<HomeProps> = (props) => {
                     <WindowsButton 
                         customIcon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" 
                         text="LinkedIn" 
-                        onClick={() => window.open('https://www.linkedin.com/in/thi%C3%AAn-ng%C3%B4-minh-bb878a352/', '_blank')} 
+                        onClick={() => window.open(process.env.REACT_APP_LINKEDIN_URL, '_blank')} 
                     />
                 </div>
                 <div style={styles.buttonsRow}>
                     <WindowsButton 
                         customIcon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
                         text="GitHub" 
-                        onClick={() => window.open('https://github.com/phuocthien412', '_blank')} 
+                        onClick={() => window.open(process.env.REACT_APP_GITHUB_URL, '_blank')} 
                     />
                 </div>
             </div>
@@ -96,7 +96,7 @@ const Home: React.FC<HomeProps> = (props) => {
             <div style={styles.bioText}>
                 <p>
                     Hello there! I'm Ngo Minh Thien, a passionate Software Engineer currently working at Asia Information Technology Center (AITC). 
-                    I am a student at Ho Chi Minh City University of Technology - HUTECH.
+                    I am a student at Ho Chi Minh City University of Technology.
                 </p>
                 <br />
                 <p>

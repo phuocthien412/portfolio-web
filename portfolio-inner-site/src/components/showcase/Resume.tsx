@@ -1,5 +1,4 @@
 import React from 'react';
-import useInitialWindowSize from '../../hooks/useInitialWindowSize';
 import ResumePDF from '../../assets/resume/CV.pdf';
 import { Icon } from '../general';
 

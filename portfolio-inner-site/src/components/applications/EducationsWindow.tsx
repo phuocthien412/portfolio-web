@@ -34,7 +34,7 @@ const EducationsWindow: React.FC<EducationsWindowProps> = (props) => {
                     <div style={styles.logoPlaceholder}>
                         <Icon icon="hutech" size={128} />
                     </div>
-                    <h3 style={{ textAlign: 'center', marginBottom: 32 }}>Ho Chi Minh City University of Technology - HUTECH</h3>
+                    <h3 style={{ textAlign: 'center', marginBottom: 32 }}>Ho Chi Minh City University of Technology</h3>
                     
                     <div style={styles.row}>
                         <b>Software Engineering</b>
@@ -45,7 +45,7 @@ const EducationsWindow: React.FC<EducationsWindowProps> = (props) => {
                     </div>
 
                     <p style={{ marginTop: 32, fontSize: 14, lineHeight: 1.5, textAlign: 'justify' }}>
-                        My studies in Software Engineering at Ho Chi Minh City University of Technology - HUTECH have been both challenging and rewarding. I gained a deep understanding of computer science fundamentals, learned to think critically, and developed strong analytical skills that have prepared me well for a future career in software engineering. Being an active participant in university projects was also a valuable experience, where I made connections, honed leadership and organizational skills, and participated in activities that deepened my understanding of the technology field.
+                        My academic foundation at HUTECH is backed by solid, production-ready experience, where I have engineered real-time AI chatbot management systems, integrated image-based search models, and architected data-driven full-stack applications. I focus on leveraging modern frameworks like FastAPI and robust UI tools to build clean, maintainable, and intelligent web solutions that solve complex enterprise problems.
                     </p>
                 </div>
             </div>

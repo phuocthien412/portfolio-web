@@ -14,7 +14,7 @@ const Educations: React.FC = () => {
                 <div style={styles.logoPlaceholder}>
                     <Icon icon="hutech" size={128} />
                 </div>
-                <h3 style={{ textAlign: 'center', marginBottom: 32 }}>Ho Chi Minh City University of Technology - HUTECH</h3>
+                <h3 style={{ textAlign: 'center', marginBottom: 32 }}>Ho Chi Minh City University of Technology</h3>
                 
                 <div style={styles.row}>
                     <b>Software Engineering</b>
@@ -25,10 +25,7 @@ const Educations: React.FC = () => {
                 </div>
 
                 <p style={{ marginTop: 32, fontSize: 14, lineHeight: 1.5, textAlign: 'justify' }}>
-                    I am currently pursuing a Bachelor's degree in Software Engineering at HUTECH. 
-                    Throughout my academic journey, I have maintained a strong focus on core computer science 
-                    principles including data structures, algorithms, software design patterns, and full-stack development.
-                    I actively participate in technical workshops and coding competitions to sharpen my skills.
+                    My academic foundation at HUTECH is backed by solid, production-ready experience, where I have engineered real-time AI chatbot management systems, integrated image-based search models, and architected data-driven full-stack applications. I focus on leveraging modern frameworks like FastAPI and robust UI tools to build clean, maintainable, and intelligent web solutions that solve complex enterprise problems.
                 </p>
             </div>
         </div>

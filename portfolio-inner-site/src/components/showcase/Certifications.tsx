@@ -1,15 +1,15 @@
 import React from 'react';
 import { Icon } from '../general';
 
-const CertificateItem: React.FC<{ title: string; issuer: string; date: string }> = ({ title, issuer, date }) => (
-    <div style={styles.certItem}>
-        <Icon icon="certificate" size={32} style={{ marginRight: 16 }} />
-        <div>
-            <h4 style={{ margin: 0 }}>{title}</h4>
-            <p style={{ margin: 0, fontSize: 12, color: '#555' }}>{issuer} | {date}</p>
-        </div>
-    </div>
-);
+// const CertificateItem: React.FC<{ title: string; issuer: string; date: string }> = ({ title, issuer, date }) => (
+//     <div style={styles.certItem}>
+//         <Icon icon="certificate" size={32} style={{ marginRight: 16 }} />
+//         <div>
+//             <h4 style={{ margin: 0 }}>{title}</h4>
+//             <p style={{ margin: 0, fontSize: 12, color: '#555' }}>{issuer} | {date}</p>
+//         </div>
+//     </div>
+// );
 
 const Certifications: React.FC = () => {
     return (

@@ -18,7 +18,7 @@ const Skills: React.FC = () => {
     return (
         <div className="site-page-content" style={styles.page}>
             <div style={styles.header}>
-                <Icon icon="windowExplorerIcon" size={48} style={{ marginBottom: 8 }} />
+                <Icon icon="doomIcon" size={48} style={{ marginBottom: 8 }} />
                 <h2 style={{ margin: 0 }}>Skills</h2>
                 <p style={{ margin: 0, color: '#555', fontSize: 12 }}>My Skills and Proficiency</p>
             </div>

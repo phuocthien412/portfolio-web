@@ -1,128 +1,187 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ResumeDownload from './ResumeDownload';
+import { Icon } from '../general';
 
 export interface ExperienceProps {}
 
 const Experience: React.FC<ExperienceProps> = (props) => {
+    const [activeTab, setActiveTab] = useState('Professional');
+
     return (
-        <div className="site-page-content">
-            <ResumeDownload />
-            <div style={styles.headerContainer}>
-                <div style={styles.header}>
-                    <div style={styles.headerRow}>
-                        <h1>AITC</h1>
-                        <a
-                            rel="noreferrer"
-                            target="_blank"
-                            href={'https://aitc-jsc.com/'}
-                        >
-                            <h4>www.aitc-jsc.com</h4>
-                        </a>
-                    </div>
-                    <div style={styles.headerRow}>
-                        <h3>Software Engineer</h3>
-                        <b>
-                            <p>Dec 2025 - Present</p>
-                        </b>
-                    </div>
+        <div className="site-page-content" style={styles.page}>
+            <div style={styles.header}>
+                <Icon icon="command-line" size={48} style={{ marginBottom: 8 }} />
+                <h2 style={{ margin: 0 }}>Experiences</h2>
+                <p style={{ margin: 0, color: '#555', fontSize: 12 }}>My Professional/Organizational Experiences</p>
+            </div>
+            
+            <div style={styles.tabsContainer}>
+                <div 
+                    style={activeTab === 'Professional' ? styles.activeTab : styles.inactiveTab}
+                    onClick={() => setActiveTab('Professional')}
+                >
+                    Professional
+                </div>
+                <div 
+                    style={activeTab === 'Organizational' ? styles.activeTab : styles.inactiveTab}
+                    onClick={() => setActiveTab('Organizational')}
+                >
+                    Organizational
+                </div>
+                <div 
+                    style={activeTab === 'Volunteer' ? styles.activeTab : styles.inactiveTab}
+                    onClick={() => setActiveTab('Volunteer')}
+                >
+                    Volunteer
                 </div>
             </div>
-            <div className="text-block">
-                <p>
-                    Asia Information Technology Center (AITC) is a leading tech 
-                    provider. As a Software Engineer, I focus on full-stack 
-                    development, system optimization, and integrating AI 
-                    solutions to improve business efficiency.
-                </p>
-                <br />
-                <ul>
-                    <li>
-                        <p>
-                            Developed and maintained the official corporate website 
-                            using WordPress, leveraging AI to optimize JavaScript 
-                            and enhance UI/UX with modern animations.
+
+            <div style={styles.contentContainer}>
+                {activeTab === 'Professional' && (
+                    <div style={styles.experienceCard}>
+                        <div style={styles.jobHeaderRow}>
+                            <div style={styles.jobHeaderLeft}>
+                                <h3 style={styles.jobTitle}>Asia Information Technology Center (AITC)</h3>
+                                <i style={styles.jobRole}>Software Engineer</i>
+                            </div>
+                            <div style={styles.jobHeaderRight}>
+                                <b>Dec 2025 - Present</b>
+                            </div>
+                        </div>
+                        
+                        <div style={styles.dividerSmall} />
+                        
+                        <p style={styles.summaryText}>
+                            Asia Information Technology Center (AITC) is a leading tech 
+                            provider. As a Software Engineer, I focus on full-stack 
+                            development, system optimization, and integrating AI 
+                            solutions to improve business efficiency.
                         </p>
-                    </li>
-                    <li>
-                        <p>
-                            Engineered the "Tân Hòa Chatbot" dashboard using React, 
-                            integrating advanced AI capabilities for automated customer 
-                            interaction and real-time data visualization.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Built a QR Code E-card system featuring impressive 
-                            popups and seamless integration for guest management, 
-                            optimized through AI-driven logic.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Collaborated on internal equipment management tools, 
-                            implementing configuration comparison features and 
-                            proactive maintenance alert systems.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Focused on building clean, modular architecture and 
-                            optimizing API performance to ensure system 
-                            scalability across multiple enterprise applications.
-                        </p>
-                    </li>
-                </ul>
+
+                        <ul style={styles.list}>
+                            <li>Developed and maintained the official corporate website using WordPress, leveraging AI to optimize JavaScript and enhance UI/UX with modern animations.</li>
+                            <li>Engineered the "Tân Hòa Chatbot" dashboard using React, integrating advanced AI capabilities for automated customer interaction and real-time data visualization.</li>
+                            <li>Built a QR Code E-card system featuring impressive popups and seamless integration for guest management, optimized through AI-driven logic.</li>
+                            <li>Collaborated on internal equipment management tools, implementing configuration comparison features and proactive maintenance alert systems.</li>
+                            <li>Focused on building clean, modular architecture and optimizing API performance to ensure system scalability across multiple enterprise applications.</li>
+                        </ul>
+                    </div>
+                )}
+                {activeTab === 'Organizational' && (
+                    <div style={styles.experienceCard}>
+                        <p>No organizational experiences listed.</p>
+                    </div>
+                )}
+                {activeTab === 'Volunteer' && (
+                    <div style={styles.experienceCard}>
+                        <p>No volunteer experiences listed.</p>
+                    </div>
+                )}
+            </div>
+            
+            <div style={{ marginTop: 24 }}>
+                <ResumeDownload />
             </div>
         </div>
     );
 };
 
 const styles: StyleSheetCSS = {
+    page: {
+        width: '100%',
+        backgroundColor: '#c0c0c0',
+        padding: '24px 48px',
+        boxSizing: 'border-box',
+        overflowY: 'auto',
+    },
     header: {
+        display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
-        width: '100%',
-    },
-    skillRow: {
-        flex: 1,
-        justifyContent: 'space-between',
-    },
-    skillName: {
-        minWidth: 56,
-    },
-    skill: {
-        flex: 1,
-        padding: 8,
         alignItems: 'center',
+        marginBottom: 24,
     },
-    progressBar: {
+    tabsContainer: {
+        display: 'flex',
+        borderBottom: '1px solid #808080',
+    },
+    activeTab: {
+        padding: '4px 16px',
+        backgroundColor: '#c0c0c0',
+        borderTop: '1px solid #fff',
+        borderLeft: '1px solid #fff',
+        borderRight: '1px solid #000',
+        borderBottom: '1px solid #c0c0c0', 
+        marginBottom: -1,
+        cursor: 'default',
+        fontSize: 14,
+        zIndex: 1,
+    },
+    inactiveTab: {
+        padding: '4px 16px',
+        backgroundColor: '#d4d0c8',
+        borderTop: '1px solid #fff',
+        borderLeft: '1px solid #fff',
+        borderRight: '1px solid #808080',
+        borderBottom: '1px solid #808080',
+        cursor: 'pointer',
+        fontSize: 14,
+    },
+    contentContainer: {
         flex: 1,
-        background: 'red',
-        marginLeft: 8,
-        height: 8,
+        backgroundColor: '#c0c0c0',
+        border: '1px solid #808080',
+        borderTopColor: '#fff',
+        borderLeftColor: '#fff',
+        padding: 24,
+        minHeight: 200,
     },
-    hoverLogo: {
-        height: 32,
-        marginBottom: 16,
+    experienceCard: {
+        display: 'flex',
+        flexDirection: 'column',
     },
-    headerContainer: {
-        alignItems: 'flex-end',
-        width: '100%',
-        justifyContent: 'center',
+    jobTitle: {
+        margin: '0 0 4px 0',
+        fontSize: 20,
+        fontWeight: 'bold',
     },
-    hoverText: {
-        marginBottom: 8,
+    jobRole: {
+        fontSize: 16,
+        color: '#333',
     },
-    indent: {
-        marginLeft: 24,
-    },
-    headerRow: {
-        justifyContent: 'space-between',
-        alignItems: 'flex-end',
-    },
-    row: {
+    jobHeaderRow: {
         display: 'flex',
         justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        width: '100%',
+        marginBottom: 8,
+    },
+    jobHeaderLeft: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+    jobHeaderRight: {
+        display: 'flex',
+        alignItems: 'flex-start',
+    },
+    dividerSmall: {
+        width: '100%',
+        height: 1,
+        backgroundColor: '#808080',
+        borderBottom: '1px solid #fff',
+        marginBottom: 16,
+    },
+    summaryText: {
+        fontSize: 14,
+        lineHeight: 1.6,
+        marginBottom: 16,
+        color: '#222',
+        fontStyle: 'italic',
+    },
+    list: {
+        margin: 0,
+        paddingLeft: 24,
+        fontSize: 14,
+        lineHeight: 1.6,
     },
 };
 
