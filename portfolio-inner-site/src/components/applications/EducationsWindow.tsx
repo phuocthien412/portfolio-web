@@ -15,7 +15,7 @@ const EducationsWindow: React.FC<EducationsWindowProps> = (props) => {
             width={initWidth}
             height={initHeight}
             windowTitle="Educations"
-            windowBarIcon="computerSmall"
+            windowBarIcon="education"
             closeWindow={props.onClose}
             onInteract={props.onInteract}
             minimizeWindow={props.onMinimize}
@@ -23,9 +23,9 @@ const EducationsWindow: React.FC<EducationsWindowProps> = (props) => {
         >
             <div style={styles.page}>
                 <div style={styles.header}>
-                    <Icon icon="computerSmall" size={48} style={{ marginBottom: 8 }} />
+                    <Icon icon="education" size={48} style={{ marginBottom: 8 }} />
                     <h2 style={{ margin: 0 }}>Educations</h2>
-                    <p style={{ margin: 0, color: '#555', fontSize: 12 }}>My Academic Backgrounds</p>
+                    <p style={{ margin: 0, color: '#555', fontSize: 12 }}>Academic Background</p>
                 </div>
                 
                 <div style={styles.divider} />
@@ -40,12 +40,9 @@ const EducationsWindow: React.FC<EducationsWindowProps> = (props) => {
                         <b>Software Engineering</b>
                         <span>2021 - 2025</span>
                     </div>
-                    <div style={styles.row}>
-                        <span style={{ margin: '0 auto', display: 'block', marginTop: 16 }}>Expected Graduation: July 2025</span>
-                    </div>
 
-                    <p style={{ marginTop: 32, fontSize: 14, lineHeight: 1.5, textAlign: 'justify' }}>
-                        My academic foundation at HUTECH is backed by solid, production-ready experience, where I have engineered real-time AI chatbot management systems, integrated image-based search models, and architected data-driven full-stack applications. I focus on leveraging modern frameworks like FastAPI and robust UI tools to build clean, maintainable, and intelligent web solutions that solve complex enterprise problems.
+                    <p style={{ marginTop: 32, fontSize: 14, lineHeight: 1.6, textAlign: 'justify' }}>
+                        My academic foundation at Ho Chi Minh City University of Technology is backed by solid, production-ready experience, where I have engineered real-time AI chatbot management systems, integrated image-based search models, and architected data-driven full-stack applications. I focus on leveraging modern frameworks like FastAPI and robust UI tools to build clean, maintainable, and intelligent web solutions that solve complex enterprise problems.
                     </p>
                 </div>
             </div>
@@ -78,21 +75,29 @@ const styles: StyleSheetCSS = {
         marginBottom: 24,
     },
     contentContainer: {
+        backgroundColor: '#fff',
+        borderTop: '2px solid #808080',
+        borderLeft: '2px solid #808080',
+        borderRight: '2px solid #fff',
+        borderBottom: '2px solid #fff',
+        padding: 32,
+        maxWidth: 700,
+        margin: '0 auto',
         display: 'flex',
         flexDirection: 'column',
-        maxWidth: 800,
-        margin: '0 auto',
-        width: '100%',
+        boxShadow: 'inset -1px -1px #404040, 4px 4px 10px rgba(0,0,0,0.1)',
     },
     logoPlaceholder: {
         display: 'flex',
         justifyContent: 'center',
-        marginBottom: 16,
+        marginBottom: 24,
     },
     row: {
         display: 'flex',
         justifyContent: 'space-between',
-        fontSize: 14,
+        borderBottom: '1px solid #eee',
+        paddingBottom: 8,
+        marginBottom: 8,
     },
 };
 

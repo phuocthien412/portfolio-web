@@ -13,10 +13,8 @@ const About: React.FC<AboutProps> = (props) => {
             <br />
             <div className="text-block">
                 <p>
-                    I'm a software engineer specializing in React and Python, currently working at 
-                    Asia Information Technology Center (AITC)! I am a student at 
-                    Ho Chi Minh City University of Technology (HUTECH) with a focus on 
-                    building high-performance, production-ready web solutions.
+                Full-Stack developer capable of integrating AI and multi-agent architecture to drive automation. I deliver production-ready solutions in enterprise environments, 
+                prioritizing maintainable code and high-performance architecture. I aim to contribute and promote technical excellence in large-scale software projects.
                 </p>
                 <br />
                 <p>

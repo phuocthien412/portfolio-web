@@ -6,7 +6,7 @@ export interface ProjectsProps {}
 
 interface ProjectDetailProps {
     title: string;
-    description: string;
+    description: string | React.ReactNode;
     icon: IconName;
 }
 
@@ -38,15 +38,15 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ title, description, icon 
 
 const Projects: React.FC<ProjectsProps> = (props) => {
     return (
-        <div className="site-page-content">
-            <h1 style={{ marginBottom: 16 }}>Professional Projects</h1>
-            <br />
-            <p>
-                Throughout my career, I've had the opportunity to work on various high-impact 
-                projects, leveraging modern technologies and Artificial Intelligence to deliver 
-                exceptional results. Here are some highlights:
-            </p>
-            <br />
+        <div className="site-page-content" style={styles.page}>
+            <div style={styles.header}>
+                <Icon icon="project" size={48} style={{ marginBottom: 8 }} />
+                <h2 style={{ margin: 0 }}>Projects</h2>
+                <p style={{ margin: 0, color: '#555', fontSize: 12 }}>My Professional and Personal Projects</p>
+            </div>
+            
+            <div style={styles.divider} />
+
             <div style={styles.projectsList}>
                 <ProjectDetail 
                     title="Tân Hoa Chatbot Project"
@@ -57,7 +57,11 @@ const Projects: React.FC<ProjectsProps> = (props) => {
                 <ProjectDetail 
                     title="Official Website AITC"
                     icon="showcaseIcon"
-                    description="Deployed the company's official website (aitc-jsc.com) using WordPress, utilizing AI to implement sophisticated JavaScript effects that enhanced visual appeal while ensuring SEO optimization and full responsiveness."
+                    description={
+                        <>
+                            Deployed the company's official website (<a href="https://aitc-jsc.com/" target="_blank" rel="noreferrer">aitc-jsc.com</a>) using WordPress, utilizing AI to implement sophisticated JavaScript effects that enhanced visual appeal while ensuring SEO optimization and full responsiveness.
+                        </>
+                    }
                 />
 
                 <ProjectDetail 
@@ -77,11 +81,30 @@ const Projects: React.FC<ProjectsProps> = (props) => {
 };
 
 const styles: StyleSheetCSS = {
+    page: {
+        width: '100%',
+        backgroundColor: '#c0c0c0',
+        padding: '24px 48px',
+        boxSizing: 'border-box',
+    },
+    header: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginBottom: 24,
+    },
+    divider: {
+        width: '100%',
+        height: 2,
+        backgroundColor: '#fff',
+        borderTop: '1px solid #808080',
+        marginBottom: 24,
+    },
     projectsList: {
         display: 'flex',
         flexDirection: 'column',
         gap: 24,
-        marginTop: 32,
+        marginTop: 8,
         width: '100%',
     },
     projectContainer: {

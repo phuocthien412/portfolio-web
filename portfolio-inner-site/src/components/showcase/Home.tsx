@@ -67,7 +67,7 @@ const Home: React.FC<HomeProps> = (props) => {
 
             <div style={styles.buttonsContainer}>
                 <div style={styles.buttonsRow}>
-                    <WindowsButton icon="computerSmall" text="About" route="about" />
+                    {/* <WindowsButton icon="about" text="About" route="about" /> */}
                     <WindowsButton icon="project" text="Projects" route="projects" />
                     <WindowsButton icon="doomIcon" text="Skills" route="skills" />
                     <WindowsButton icon="command-line" text="Experiences" route="experience" />
@@ -93,18 +93,14 @@ const Home: React.FC<HomeProps> = (props) => {
             
             <Divider />
 
-            <div style={styles.bioText}>
-                <p>
-                    Hello there! I'm Ngo Minh Thien, a passionate Software Engineer currently working at Asia Information Technology Center (AITC). 
-                    I am a student at Ho Chi Minh City University of Technology.
-                </p>
-                <br />
-                <p>
-                    Outside of my regular coursework, I focus on building high-performance, production-ready web solutions. 
-                    I particularly enjoy leveraging Artificial Intelligence to optimize development workflows, enhance UI/UX, 
-                    and deliver scalable backend services and responsive frontend interfaces. My objective is to build clean, 
-                    modular architecture and optimize API performance to ensure system scalability across multiple enterprise applications.
-                </p>
+            <div style={styles.bioContainer}>
+                <div style={styles.bioColumn}>
+                    <p>
+                        Hello there! I'm <b>Ngo Minh Thien</b>, Full-Stack developer capable of integrating AI and multi-agent architecture to drive automation. 
+                        I deliver production-ready solutions in enterprise environments, prioritizing maintainable code and high-performance architecture. I aim to contribute and promote technical excellence 
+                        in large-scale software projects.
+                    </p>
+                </div>
             </div>
         </div>
     );
@@ -205,12 +201,25 @@ const styles: StyleSheetCSS = {
         fontWeight: 'bold',
         color: '#000',
     },
-    bioText: {
+    bioContainer: {
         maxWidth: 800,
-        textAlign: 'left',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'stretch',
+        gap: 32,
+        marginTop: 8,
+    },
+    bioColumn: {
+        flex: 1,
         fontSize: 14,
-        lineHeight: 1.4,
+        lineHeight: 1.6,
         color: '#000',
+        textAlign: 'justify',
+    },
+    bioDivider: {
+        width: 1,
+        backgroundColor: '#808080',
+        borderRight: '1px solid #fff',
     },
 };
 

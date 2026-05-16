@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import colors from '../../constants/colors';
-import twitterIcon from '../../assets/pictures/contact-twitter.png';
 import ghIcon from '../../assets/pictures/contact-gh.png';
 import inIcon from '../../assets/pictures/contact-in.png';
 import ResumeDownload from './ResumeDownload';
+import { Icon } from '../general';
 
 export interface ContactProps {}
 
@@ -112,19 +112,18 @@ const Contact: React.FC<ContactProps> = (props) => {
     return (
         <div className="site-page-content">
             <div style={styles.header}>
-                <h1>Contact</h1>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                    <Icon icon="contact-us" size={48} />
+                    <h1 style={{ margin: 0 }}>Contact</h1>
+                </div>
                 <div style={styles.socials}>
                     <SocialBox
                         icon={ghIcon}
-                        link={'https://github.com/phuocthien412'}
+                        link={process.env.REACT_APP_GITHUB_URL || 'https://github.com/phuocthien412'}
                     />
                     <SocialBox
                         icon={inIcon}
-                        link={'https://www.linkedin.com/in/ngominhthien/'}
-                    />
-                    <SocialBox
-                        icon={twitterIcon}
-                        link={'#'}
+                        link={process.env.REACT_APP_LINKEDIN_URL || 'https://www.linkedin.com/in/ngominhthien/'}
                     />
                 </div>
             </div>

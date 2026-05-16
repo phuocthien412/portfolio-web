@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Window from '../os/Window';
 import useInitialWindowSize from '../../hooks/useInitialWindowSize';
 import { Icon } from '../general';
@@ -6,19 +6,37 @@ import { IconName } from '../../assets/icons';
 
 export interface ProjectsWindowProps extends WindowAppProps {}
 
-const ProjectDetail: React.FC<{ title: string; description: string; icon: IconName }> = ({ title, description, icon }) => (
-    <div style={styles.projectContainer}>
-        <div style={styles.projectHeader}>
-            <div className="big-button-container" style={styles.iconContainer}>
-                <Icon icon={icon} size={32} />
+interface ProjectDetailProps {
+    title: string;
+    description: string | React.ReactNode;
+    icon: IconName;
+}
+
+const ProjectDetail: React.FC<ProjectDetailProps> = ({ title, description, icon }) => {
+    const [isHovered, setIsHovered] = useState(false);
+
+    return (
+        <div 
+            style={Object.assign(
+                {}, 
+                styles.projectContainer, 
+                isHovered && styles.projectContainerHover
+            )}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <div style={styles.projectHeader}>
+                <div className="big-button-container" style={styles.iconContainer}>
+                    <Icon icon={icon} size={32} />
+                </div>
+                <h2 style={styles.projectTitle}>{title}</h2>
             </div>
-            <h2 style={styles.projectTitle}>{title}</h2>
+            <div className="text-block" style={styles.projectDescription}>
+                <p>{description}</p>
+            </div>
         </div>
-        <div className="text-block" style={styles.projectDescription}>
-            <p>{description}</p>
-        </div>
-    </div>
-);
+    );
+};
 
 const ProjectsWindow: React.FC<ProjectsWindowProps> = (props) => {
     const { initWidth, initHeight } = useInitialWindowSize({ margin: 100 });
@@ -40,7 +58,7 @@ const ProjectsWindow: React.FC<ProjectsWindowProps> = (props) => {
                 <div style={styles.header}>
                     <Icon icon="project" size={48} style={{ marginBottom: 8 }} />
                     <h2 style={{ margin: 0 }}>Projects</h2>
-                    <p style={{ margin: 0, color: '#555', fontSize: 12 }}>My Professional Projects & Endeavors</p>
+                    <p style={{ margin: 0, color: '#555', fontSize: 12 }}>My Professional and Personal Projects</p>
                 </div>
                 
                 <div style={styles.divider} />
@@ -55,7 +73,11 @@ const ProjectsWindow: React.FC<ProjectsWindowProps> = (props) => {
                     <ProjectDetail 
                         title="Official Website AITC"
                         icon="showcaseIcon"
-                        description="Deployed the company's official website (aitc-jsc.com) using WordPress, utilizing AI to implement sophisticated JavaScript effects that enhanced visual appeal while ensuring SEO optimization and full responsiveness."
+                        description={
+                            <>
+                                Deployed the company's official website (<a href="https://aitc-jsc.com/" target="_blank" rel="noreferrer">aitc-jsc.com</a>) using WordPress, utilizing AI to implement sophisticated JavaScript effects that enhanced visual appeal while ensuring SEO optimization and full responsiveness.
+                            </>
+                        }
                     />
 
                     <ProjectDetail 
@@ -110,11 +132,24 @@ const styles: StyleSheetCSS = {
     projectContainer: {
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
-        border: '1px solid #ccc',
-        boxShadow: '2px 2px 5px rgba(0,0,0,0.1)',
+        backgroundColor: '#d4d0c8',
+        borderTop: '2px solid #808080',
+        borderLeft: '2px solid #808080',
+        borderRight: '2px solid #fff',
+        borderBottom: '2px solid #fff',
         padding: 24,
         boxSizing: 'border-box',
+        transition: 'all 0.1s ease-in-out',
+        cursor: 'default',
+    },
+    projectContainerHover: {
+        backgroundColor: '#e4e0d8',
+        borderTop: '2px solid #fff',
+        borderLeft: '2px solid #fff',
+        borderRight: '2px solid #808080',
+        borderBottom: '2px solid #808080',
+        boxShadow: '4px 4px 10px rgba(0,0,0,0.2)',
+        transform: 'translate(-2px, -2px)',
     },
     projectHeader: {
         display: 'flex',
@@ -128,18 +163,19 @@ const styles: StyleSheetCSS = {
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: 16,
+        backgroundColor: '#c0c0c0',
     },
     projectTitle: {
-        fontSize: 24,
+        fontSize: 28,
         margin: 0,
         fontWeight: 'bold',
-        color: '#333',
+        color: '#000',
     },
     projectDescription: {
         marginTop: 0,
-        fontSize: 14,
+        fontSize: 16,
         lineHeight: 1.5,
-        color: '#444',
+        color: '#000',
     },
 };
 

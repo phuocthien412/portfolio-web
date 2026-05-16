@@ -23,6 +23,8 @@ import commandLine from './command-line.png';
 import education from './education.png';
 import certificate from './certificate.png';
 import hutech from './hutech.png';
+import about from './about.png';
+import contactUs from './contact-us.png';
 
 const icons = {
     windowResize: windowResize,
@@ -48,6 +50,8 @@ const icons = {
     education: education,
     certificate: certificate,
     hutech: hutech,
+    about: about,
+    'contact-us': contactUs,
 };
 
 export type IconName = keyof typeof icons;
