@@ -7,12 +7,13 @@ export interface HomeProps {}
 
 interface WindowsButtonProps {
     icon?: IconName;
+    customIcon?: string;
     text: string;
     onClick?: () => void;
     route?: string;
 }
 
-const WindowsButton: React.FC<WindowsButtonProps> = ({ icon, text, onClick, route }) => {
+const WindowsButton: React.FC<WindowsButtonProps> = ({ icon, customIcon, text, onClick, route }) => {
     const navigate = useNavigate();
 
     const handleClick = (e: React.MouseEvent) => {
@@ -27,6 +28,7 @@ const WindowsButton: React.FC<WindowsButtonProps> = ({ icon, text, onClick, rout
     return (
         <button style={styles.winButton} onMouseDown={handleClick}>
             {icon && <Icon icon={icon} size={24} style={{ marginRight: 8 }} />}
+            {customIcon && <img src={customIcon} alt="" style={{ width: 24, height: 24, marginRight: 8 }} />}
             <span style={styles.winButtonText}>{text}</span>
         </button>
     );
@@ -66,18 +68,26 @@ const Home: React.FC<HomeProps> = (props) => {
             <div style={styles.buttonsContainer}>
                 <div style={styles.buttonsRow}>
                     <WindowsButton icon="myComputer" text="About" route="about" />
-                    <WindowsButton icon="showcaseIcon" text="Projects" route="projects" />
+                    <WindowsButton icon="project" text="Projects" route="projects" />
                     <WindowsButton icon="doomIcon" text="Skills" />
-                    <WindowsButton icon="windowExplorerIcon" text="Experiences" route="experience" />
+                    <WindowsButton icon="command-line" text="Experiences" route="experience" />
                 </div>
                 <div style={styles.buttonsRow}>
-                    <WindowsButton icon="computerSmall" text="Educations" />
-                    <WindowsButton icon="henordleIcon" text="Certifications" />
+                    <WindowsButton icon="education" text="Educations" />
+                    <WindowsButton icon="certificate" text="Certifications" />
                     <WindowsButton icon="credits" text="Resume" />
-                    <WindowsButton icon="showcaseIcon" text="LinkedIn" />
+                    <WindowsButton 
+                        customIcon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" 
+                        text="LinkedIn" 
+                        onClick={() => window.open('https://www.linkedin.com/in/thi%C3%AAn-ng%C3%B4-minh-bb878a352/', '_blank')} 
+                    />
                 </div>
                 <div style={styles.buttonsRow}>
-                    <WindowsButton icon="trailIcon" text="GitHub" />
+                    <WindowsButton 
+                        customIcon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+                        text="GitHub" 
+                        onClick={() => window.open('https://github.com/phuocthien412', '_blank')} 
+                    />
                 </div>
             </div>
             

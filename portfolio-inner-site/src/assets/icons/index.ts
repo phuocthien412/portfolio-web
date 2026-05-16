@@ -18,6 +18,11 @@ import windowExplorerIcon from './windowExplorerIcon.png';
 import windowsStartIcon from './windowsStartIcon.png';
 import scrabbleIcon from './scrabbleIcon.png';
 import close from './close.png';
+import project from './project.png';
+import commandLine from './command-line.png';
+import education from './education.png';
+import certificate from './certificate.png';
+import hutech from './hutech.png';
 
 const icons = {
     windowResize: windowResize,
@@ -38,6 +43,11 @@ const icons = {
     windowExplorerIcon: windowExplorerIcon,
     windowsStartIcon: windowsStartIcon,
     trailIcon: trailIcon,
+    project: project,
+    'command-line': commandLine,
+    education: education,
+    certificate: certificate,
+    hutech: hutech,
 };
 
 export type IconName = keyof typeof icons;

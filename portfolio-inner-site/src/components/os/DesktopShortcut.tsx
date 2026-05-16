@@ -108,7 +108,7 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
                         }
                     )}
                 />
-                <Icon icon={icon} style={styles.icon} />
+                <Icon icon={icon} size={32} style={styles.icon} />
             </div>
             <div
                 className={

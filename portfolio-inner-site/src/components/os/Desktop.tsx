@@ -1,12 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Colors from '../../constants/colors';
 import ShowcaseExplorer from '../applications/ShowcaseExplorer';
+import ResumeWindow from '../applications/ResumeWindow';
+import ProjectsWindow from '../applications/ProjectsWindow';
+import SkillsWindow from '../applications/SkillsWindow';
+import ExperiencesWindow from '../applications/ExperiencesWindow';
+import EducationsWindow from '../applications/EducationsWindow';
+import CertificationsWindow from '../applications/CertificationsWindow';
 import ShutdownSequence from './ShutdownSequence';
 import Toolbar from './Toolbar';
 import DesktopShortcut, { DesktopShortcutProps } from './DesktopShortcut';
 
 import { IconName } from '../../assets/icons';
-
 
 export interface DesktopProps {}
 
@@ -30,37 +35,37 @@ const APPLICATIONS: {
         key: 'resume',
         name: 'Resume',
         shortcutIcon: 'credits',
-        component: ShowcaseExplorer,
+        component: ResumeWindow,
     },
     projects: {
         key: 'projects',
         name: 'Projects',
-        shortcutIcon: 'showcaseIcon',
-        component: ShowcaseExplorer,
+        shortcutIcon: 'project',
+        component: ProjectsWindow,
     },
     skills: {
         key: 'skills',
         name: 'Skills',
         shortcutIcon: 'doomIcon',
-        component: ShowcaseExplorer,
+        component: SkillsWindow,
     },
     experiences: {
         key: 'experiences',
         name: 'Experiences',
-        shortcutIcon: 'windowExplorerIcon',
-        component: ShowcaseExplorer,
+        shortcutIcon: 'command-line',
+        component: ExperiencesWindow,
     },
     educations: {
         key: 'educations',
         name: 'Educations',
-        shortcutIcon: 'computerSmall',
-        component: ShowcaseExplorer,
+        shortcutIcon: 'education',
+        component: EducationsWindow,
     },
     certifications: {
         key: 'certifications',
         name: 'Certifications',
-        shortcutIcon: 'henordleIcon',
-        component: ShowcaseExplorer,
+        shortcutIcon: 'certificate',
+        component: CertificationsWindow,
     },
 };
 
