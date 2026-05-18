@@ -1,0 +1,72 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  # Cho phép chạy thủ công từ tab Actions
+  workflow_dispatch:
+
+# Cấp quyền để deploy lên GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Chỉ cho phép 1 deployment chạy cùng lúc
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: portfolio/package-lock.json
+
+      - name: Install dependencies
+        working-directory: portfolio
+        run: npm ci
+
+      - name: Create .env file
+        working-directory: portfolio
+        run: |
+          echo "INNER_SITE_URL=${{ secrets.INNER_SITE_URL }}" >> .env
+          echo "FOLIO_EMAIL=${{ secrets.FOLIO_EMAIL }}" >> .env
+          echo "FOLIO_PASSWORD=${{ secrets.FOLIO_PASSWORD }}" >> .env
+
+      - name: Build project
+        working-directory: portfolio
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Webpack build output nằm ở thư mục 'public'
+          path: portfolio/public
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
